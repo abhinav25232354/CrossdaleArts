@@ -363,6 +363,8 @@ function createGalleryLightbox() {
     return { root, closeBtn, content };
 }
 
+setupCourseImagePreview();
+
 function setVideoSources(videoEl, sources, onAllFailed) {
     const safeSources = prioritizeSources((sources || []).filter((sourceDef) => sourceDef && sourceDef.src));
     if (safeSources.length === 0) {
@@ -410,6 +412,60 @@ function showVideoFallback(container, item) {
     wrapper.appendChild(text);
     wrapper.appendChild(link);
     container.appendChild(wrapper);
+}
+
+function setupCourseImagePreview() {
+    const courseImages = document.querySelectorAll("#course-content img");
+    if (!courseImages.length) return;
+
+    const lightbox = createGalleryLightbox();
+    let openedFromCourse = false;
+
+    const openCourseImage = (imgEl) => {
+        lightbox.content.innerHTML = "";
+
+        const img = document.createElement("img");
+        img.src = imgEl.src;
+        img.alt = imgEl.alt || "Course image";
+        img.className = "gallery-lightbox-media";
+        lightbox.content.appendChild(img);
+
+        lightbox.root.classList.add("is-open");
+        lightbox.root.setAttribute("aria-hidden", "false");
+        document.body.classList.add("gallery-lightbox-open");
+        openedFromCourse = true;
+    };
+
+    const closeCourseImage = () => {
+        if (!openedFromCourse) return;
+        lightbox.root.classList.remove("is-open");
+        lightbox.root.setAttribute("aria-hidden", "true");
+        lightbox.content.innerHTML = "";
+        document.body.classList.remove("gallery-lightbox-open");
+        openedFromCourse = false;
+    };
+
+    courseImages.forEach((imgEl) => {
+        imgEl.setAttribute("role", "button");
+        imgEl.setAttribute("tabindex", "0");
+        imgEl.setAttribute("aria-label", "Open image in full view");
+
+        imgEl.addEventListener("click", () => openCourseImage(imgEl));
+        imgEl.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openCourseImage(imgEl);
+            }
+        });
+    });
+
+    lightbox.closeBtn.addEventListener("click", closeCourseImage);
+    lightbox.root.addEventListener("click", (event) => {
+        if (event.target === lightbox.root) closeCourseImage();
+    });
+    window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeCourseImage();
+    });
 }
 
 function buildFallbackSources(src = "") {

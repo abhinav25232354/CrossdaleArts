@@ -428,7 +428,9 @@ footer p{
     line-height: 1.5;
 }
 #course-content img{
-    width: 50%;
+    width: 90%;
+    margin-left: 10px;
+    margin-bottom: -10px;
 }
 #enrollment-button{
     padding: 20px;
@@ -451,6 +453,12 @@ footer p{
 #course-image{
     width: 40%;
     border-radius: 10px;
+    height: auto;
+    max-height: min(62vh, 520px);
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    cursor: zoom-in;
 }
 .download-course-details-button{
     padding: 15px;
@@ -604,8 +612,13 @@ footer p{
         margin-bottom: 10px;
     }
     #course-image{
-        width: 86%;
-        max-width: 460px;
+        width: 80%;
+        max-width: 100vw;
+        height: 35%;
+        max-height: 40vh;
+        min-height: 30vh;
+        object-fit: contain;
+        /* margin-left: calc(50% - 50vw); */
     }
     #course-content{
         margin-top: 18px;
@@ -633,6 +646,15 @@ footer p{
     }
     #art-expertise ul{
         margin-left: 22px;
+    }
+    #course-image{
+        width: 100vw;
+        max-width: 100vw;
+        height: 35vh;
+        max-height: 40vh;
+        min-height: 30vh;
+        object-fit: contain;
+        margin-left: calc(50% - 50vw);
     }
     footer{
         margin-top: 36px;
