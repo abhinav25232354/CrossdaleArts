@@ -496,7 +496,7 @@ function prioritizeSources(sources) {
     });
 }
 
-const FEEDBACK_ROTATION_MS = 3000;
+const FEEDBACK_ROTATION_MS = 2000;
 const FEEDBACK_DATA_URL = "/data/feedbacks.json";
 const FEEDBACK_STORAGE_KEY = "crossdale_feedbacks";
 
@@ -520,7 +520,7 @@ async function initFeedbackWidget() {
     header.className = "feedback-widget-header";
 
     const title = document.createElement("h4");
-    title.textContent = "Student Feedback";
+    title.textContent = "Learners Feedback";
 
     const count = document.createElement("span");
     count.className = "feedback-count";
@@ -772,7 +772,7 @@ function openFeedbackDetailModal(detailModal, feedback) {
 }
 
 function openFeedbackFormModal(detailModal, onSubmit) {
-    const saveModeLabel = "this browser (local storage)";
+    const saveModeLabel = "Crossdale Arts Database";
 
     detailModal.modal.innerHTML = `
         <div class="feedback-modal-top">
