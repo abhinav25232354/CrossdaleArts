@@ -144,6 +144,12 @@ nav{
     margin: auto;
     margin-top: 50px;
 }
+#enrollment-layout{
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(300px, 420px);
+    align-items: start;
+    gap: 20px;
+}
 #enrollment-buttons{
     display: flex;
     gap: 10px;
@@ -157,6 +163,176 @@ nav{
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
+}
+#feedback-widget-anchor{
+    min-height: 188px;
+    margin-top: -100px;
+}
+.feedback-widget{
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fcfcfc 0%, #f3f3f3 100%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.feedback-widget-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.feedback-widget-header h4{
+    font-size: 16px;
+}
+.feedback-count{
+    font-size: 12px;
+    color: #585858;
+}
+.feedback-card{
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    min-height: 98px;
+    cursor: pointer;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+}
+.feedback-card.is-flipping{
+    opacity: 0.25;
+    transform: rotateX(12deg) scale(0.985);
+}
+.feedback-card:hover,
+.feedback-card:focus-visible{
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+}
+.feedback-stars{
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #d09a00;
+}
+.feedback-name{
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 6px;
+    color: #151515;
+}
+.feedback-message{
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.45;
+}
+.feedback-widget-actions{
+    display: flex;
+    justify-content: flex-end;
+}
+.feedback-leave-btn{
+    border: none;
+    background: #111;
+    color: #fff;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.feedback-overlay{
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 10, 10, 0.6);
+    z-index: 2100;
+    padding: 20px;
+}
+.feedback-overlay.is-open{
+    display: flex;
+}
+.feedback-modal{
+    width: min(680px, 94vw);
+    max-height: 90vh;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+    padding: 16px;
+    overflow: auto;
+}
+.feedback-modal-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+.feedback-modal-close{
+    border: 1px solid #d6d6d6;
+    background: #fff;
+    color: #151515;
+    border-radius: 999px;
+    padding: 7px 12px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.feedback-modal-stars{
+    font-size: 16px;
+    color: #d09a00;
+    margin-top: 12px;
+}
+.feedback-modal-name{
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+.feedback-modal-message{
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 15px;
+    color: #2d2d2d;
+}
+.feedback-form{
+    margin-top: 16px;
+    border-top: 1px solid #ececec;
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.feedback-form label{
+    font-size: 13px;
+    color: #232323;
+}
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea{
+    width: 100%;
+    margin-top: 4px;
+    border: 1px solid #d7d7d7;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: inherit;
+}
+.feedback-form textarea{
+    min-height: 100px;
+    resize: vertical;
+}
+.feedback-form-submit{
+    border: none;
+    background: #111;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+.feedback-form-note{
+    font-size: 12px;
+    color: #595959;
 }
 
 /* About section */
@@ -672,6 +848,13 @@ footer p{
         min-width: 180px;
         padding: 14px;
         font-size: 15px;
+    }
+    #enrollment-layout{
+        grid-template-columns: 1fr;
+    }
+    #feedback-widget-anchor{
+        min-height: 0;
+        margin-top: 40px;
     }
 
     #whole-course-title-tagline-container{

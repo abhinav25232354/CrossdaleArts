@@ -168,7 +168,7 @@ Update these in each page navbar if needed.
 
 ## 8. Running Locally
 
-Because this is a static site, you can run it directly or with a local static server.
+Because this is a static site, you can run it directly or with a local server.
 
 ### Option A: Open Directly
 - Open `index.html` in browser.
@@ -184,6 +184,11 @@ Then open:
 - `http://localhost:8000`
 
 Using a local server is recommended so root-relative links (`/style.css`, `/pages/...`) resolve consistently.
+
+### Feedback Storage in Static Hosting
+- Feedback list is fetched from `data/feedbacks.json`.
+- New feedback submitted from the website is stored in the visitor's browser (`localStorage`) because static hosting cannot write files from client-side JavaScript.
+- To publish feedbacks for all users, manually add entries to `data/feedbacks.json`.
 
 ## 9. Deployment
 
