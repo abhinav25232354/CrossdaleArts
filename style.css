@@ -214,6 +214,9 @@ nav{
     font-size: 14px;
     letter-spacing: 1px;
     color: #d09a00;
+
+    /* display hidden temporary */
+    display: none;
 }
 .feedback-name{
     font-size: 14px;
