@@ -540,15 +540,23 @@ body.gallery-lightbox-open{
 }
 
 @media (max-width: 600px){
+    #art-gallery{
+        width: 100%;
+        padding: 0 10px;
+    }
+    .gallery-slider{
+        gap: 0;
+    }
+    .gallery-viewport{
+        padding: 0;
+    }
     #art-gallery-images .slide{
         flex-basis: 100%;
         padding-right: 0;
         height: clamp(220px, 72vw, 360px);
     }
     .gallery-nav{
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+        display: none;
     }
     .gallery-lightbox{
         padding: 2vh 2vw;
